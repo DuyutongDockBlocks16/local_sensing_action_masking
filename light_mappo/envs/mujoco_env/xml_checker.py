@@ -6,7 +6,7 @@ import os
 xml_path = "./xml/collab_mirobot_for_paper.xml"
 
 if not os.path.exists(xml_path):
-    print(f"文件不存在: {xml_path}")
+    print(f"file not exist: {xml_path}")
     exit()
 
 try:
@@ -20,4 +20,4 @@ try:
             viewer.sync()
 
 except Exception as e:
-    print(f"加载模型时出错: {e}")
+    print(f"Error loading model: {e}")

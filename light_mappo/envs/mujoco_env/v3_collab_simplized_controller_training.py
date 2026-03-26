@@ -10,7 +10,6 @@ sys.path.insert(0, parent_dir)
 os.environ['CUDA_VISIBLE_DEVICES'] = ''
 torch.set_default_device('cpu')
 
-print("🖥️ 强制使用 CPU 进行训练")
 print(f"PyTorch device: {torch.device('cpu')}")
 print(f"CUDA available: {torch.cuda.is_available()}")
 
@@ -221,7 +220,7 @@ def driver_model_training_parallel(load_model_path=None, num_envs=14):
             env, verbose=1,
             device='cpu',
                     learning_rate=3e-4,     
-                    n_steps=2048,           # 调整为并行环境合适的值
+                    n_steps=2048,           
                     batch_size=512,          
                     n_epochs=8,            
                     ent_coef=0.02,          
@@ -518,21 +517,17 @@ def driver_model_training_episode_save(env, load_model_path=None, save_every_epi
         
         episode_count += 1
 
-        # 每隔指定episode保存模型
         if episode_count % save_every_episodes == 0:
             if enable_backup:
-                # 备份模式：如果存在旧模型，先备份
                 if os.path.exists(f"{FIXED_MODEL_NAME}"):
                     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
                     backup_name = f"backup_ep{episode_count-save_every_episodes}_{timestamp}.zip"
                     os.rename(f"{FIXED_MODEL_NAME}", f"{backup_name}")
                     print(f"📁 Backed up previous model to: {backup_name}")
             else:
-                # 无备份模式：直接覆盖
                 if os.path.exists(f"{FIXED_MODEL_NAME}"):
                     print(f"🔄 Overwriting existing model: {FIXED_MODEL_NAME}")
             
-            # 保存新模型到固定名字
             model.save(FIXED_MODEL_NAME)
             print(f"💾 Saved model after episode {episode_count}: {FIXED_MODEL_NAME}")
     
@@ -540,7 +535,6 @@ def driver_model_training_episode_save(env, load_model_path=None, save_every_epi
     
 def driver_model_training_timestep_based_parallel_safe(load_model_path=None, num_envs=14):
     
-    # 创建并行环境（在同一个进程内）
     env = SubprocVecEnv([make_env(i) for i in range(num_envs)])
     env = VecMonitor(env)
     
@@ -563,10 +557,9 @@ def driver_model_training_timestep_based_parallel_safe(load_model_path=None, num
     else:
         model = PPO("MlpPolicy", env, verbose=1, device='cpu', n_steps=2048)
     
-    for round in range(8):  # 减少轮数，因为并行效率高
+    for round in range(8):  
         print(f"\n=== Round {round+1}/8 ===")
 
-        # 每轮重新加载模型（如果需要逐步改进）
         if round > 0:
             model = PPO.load(f"{FIXED_MODEL_NAME}", env=env, device='cpu')
             print(f"🔄 Reloaded model for round {round+1}")
@@ -577,7 +570,6 @@ def driver_model_training_timestep_based_parallel_safe(load_model_path=None, num
             callback=combined_callback
         )
          
-        # 保存模型
         model.save(FIXED_MODEL_NAME)
         print(f"💾 Round {round+1}: Model improved and saved")
     
