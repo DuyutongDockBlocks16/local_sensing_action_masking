@@ -1,0 +1,122 @@
+Pure rware No safe masking: 7x7 2 agents run 1 deterministic = false policy
+============================================================
+FINAL RESULTS (100 episodes)
+============================================================
+Average Steps per Episode: 265.84 ± 19.62
+Total Average Reward: 20.000 ± 0.000
+Collision Rate (TOTAL): 0.0%
+Collision Rate (ENV): 0.0%
+Collision Rate (Robot): 0.0%
+
+No safe masking: 7x7 2 agents run 1 deterministic = false policy
+============================================================
+FINAL RESULTS (100 episodes)
+============================================================
+Average Steps per Episode: 19.63 ± 16.12
+Total Average Reward: 0.960 ± 1.183
+Collision Rate (TOTAL): 100.0%
+Collision Rate (ENV): 58.0%
+Collision Rate (Robot): 42.0%
+
+add safe masking 7x7 2 agents run19 deterministic = false policy
+============================================================
+FINAL RESULTS (100 episodes)
+============================================================
+Average Steps per Episode: 289.28 ± 22.47
+Total Average Reward: 20.010 ± 0.099
+Collision Rate (TOTAL): 0.0%
+Collision Rate (ENV): 0.0%
+Collision Rate (Robot): 0.0%
+
+Pure rware No safe masking: 7x7 4 agents run 27 deterministic = false policy
+============================================================
+FINAL RESULTS (100 episodes)
+============================================================
+Average Steps per Episode: 189.37 ± 17.03
+Total Average Reward: 20.010 ± 0.099
+Collision Rate (TOTAL): 0.0%
+Collision Rate (ENV): 0.0%
+Collision Rate (Robot): 0.0%
+
+no safe masking: 7x7 4 agents run 27 deterministic = false policy
+============================================================
+FINAL RESULTS (100 episodes)
+============================================================
+Average Steps per Episode: 4.50 ± 3.54
+Total Average Reward: 0.030 ± 0.222
+Collision Rate (TOTAL): 100.0%
+Collision Rate (ENV): 63.0%
+Collision Rate (Robot): 37.0%
+
+add safe masking: 7x7 4 agents run 26 deterministic = false policy
+============================================================
+FINAL RESULTS (100 episodes)
+============================================================
+Average Steps per Episode: 204.79 ± 18.04
+Total Average Reward: 20.020 ± 0.139
+Collision Rate (TOTAL): 0.0%
+Collision Rate (ENV): 0.0%
+Collision Rate (Robot): 0.0%
+
+Pure rware No safe masking: 7x3 3 agents run 31 deterministic = false policy
+============================================================
+FINAL RESULTS (100 episodes)
+============================================================
+Average Steps per Episode: 155.56 ± 11.31
+Total Average Reward: 20.000 ± 0.000
+Collision Rate (TOTAL): 0.0%
+Collision Rate (ENV): 0.0%
+Collision Rate (Robot): 0.0%
+
+No safe masking: 7x3 3 agents run 31 deterministic = false policy
+============================================================
+FINAL RESULTS (100 episodes)
+============================================================
+Average Steps per Episode: 3.82 ± 3.74
+Total Average Reward: 0.050 ± 0.328
+Collision Rate (TOTAL): 100.0%
+Collision Rate (ENV): 58.0%
+Collision Rate (Robot): 42.0%
+
+
+Add safe masking: 7x3 3 agents run 32 deterministic = false policy
+============================================================
+FINAL RESULTS (100 episodes)
+============================================================
+Average Steps per Episode: 158.26 ± 10.39
+Total Average Reward: 20.030 ± 0.171
+Collision Rate (TOTAL): 0.0%
+Collision Rate (ENV): 0.0%
+Collision Rate (Robot): 0.0%
+
+
+Pure rware No safe masking: 9x9 6 agents run 38 deterministic = false policy
+============================================================
+FINAL RESULTS (100 episodes)
+============================================================
+Average Steps per Episode: 150.16 ± 12.99
+Total Average Reward: 20.020 ± 0.140
+Collision Rate (TOTAL): 0.0%
+Collision Rate (ENV): 0.0%
+Collision Rate (Robot): 0.0%
+
+No safe masking: 9x9 6 agents run 38 deterministic = false policy
+============================================================
+FINAL RESULTS (100 episodes)
+============================================================
+Average Steps per Episode: 4.34 ± 3.57
+Total Average Reward: 0.000 ± 0.000
+Collision Rate (TOTAL): 100.0%
+Collision Rate (ENV): 31.0%
+Collision Rate (Robot): 69.0%
+
+
+Add Safe masking: 9x9 6 agents run 39 deterministic = false policy
+============================================================
+FINAL RESULTS (100 episodes)
+============================================================
+Average Steps per Episode: 174.14 ± 28.22
+Total Average Reward: 20.050 ± 0.218
+Collision Rate (TOTAL): 0.0%
+Collision Rate (ENV): 0.0%
+Collision Rate (Robot): 0.0%

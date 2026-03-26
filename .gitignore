@@ -1,0 +1,13 @@
+__pycache__/
+
+*.pyc
+
+light_mappo/results/**/run*/
+!light_mappo/results/MyEnv/MyEnv/mappo/check/run1/
+!light_mappo/results/MyEnv/MyEnv/mappo/check/run19/
+!light_mappo/results/MyEnv/MyEnv/mappo/check/run26/
+!light_mappo/results/MyEnv/MyEnv/mappo/check/run27/
+!light_mappo/results/MyEnv/MyEnv/mappo/check/run31/
+!light_mappo/results/MyEnv/MyEnv/mappo/check/run32/
+!light_mappo/results/MyEnv/MyEnv/mappo/check/run38/
+!light_mappo/results/MyEnv/MyEnv/mappo/check/run39/
