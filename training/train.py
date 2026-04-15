@@ -24,13 +24,13 @@ from maps import layout_7_3, layout_7_7, layout_9_9
 action_masking = True
 num_agents = 6
 
-def make_train_env(all_args, map, agents_num, lsam_flag):
+def make_train_env(all_args, map, agents_num, lsam_flag, map_type):
     def get_env_fn(rank):
         def init_env():
 
             from light_mappo.envs.env_discrete import DiscreteActionEnv
 
-            env = DiscreteActionEnv(action_masking=lsam_flag, n_agents=agents_num, map=map)
+            env = DiscreteActionEnv(action_masking=lsam_flag, n_agents=agents_num, map=map, map_type=map_type)
 
             env.seed(all_args.seed + rank * 1000)
             return env
@@ -40,7 +40,7 @@ def make_train_env(all_args, map, agents_num, lsam_flag):
     return DummyVecEnv([get_env_fn(i) for i in range(all_args.n_rollout_threads)])
 
 
-def make_eval_env(all_args, map, agents_num, lsam_flag):
+def make_eval_env(all_args, map, agents_num, lsam_flag, map_type):
     def get_env_fn(rank):
         def init_env():
             # TODO Important, here you can choose continuous or discrete action space by uncommenting the above two lines or the below two lines.
@@ -48,7 +48,7 @@ def make_eval_env(all_args, map, agents_num, lsam_flag):
 
             # env = ContinuousActionEnv()
             from light_mappo.envs.env_discrete import DiscreteActionEnv
-            env = DiscreteActionEnv(action_masking=lsam_flag, n_agents=agents_num, map=map)
+            env = DiscreteActionEnv(action_masking=lsam_flag, n_agents=agents_num, map=map, map_type=map_type)
             env.seed(all_args.seed + rank * 1000)
             return env
 
@@ -78,15 +78,19 @@ def main(args):
     all_args = parse_args(args, parser)
     
     if all_args.map == "a":
+        map_type = "a"
         map = layout_7_3
         agents_num = 3
     elif all_args.map == "b":
+        map_type = "b"
         map = layout_9_9
         agents_num = 6
     elif all_args.map == "c":
+        map_type = "c"
         map = layout_7_7
         agents_num = 2
     elif all_args.map == "d":
+        map_type = "d"
         map = layout_7_7
         agents_num = 4
 
@@ -164,8 +168,8 @@ def main(args):
     np.random.seed(all_args.seed)
 
     # env init
-    envs = make_train_env(all_args, map=map, agents_num=agents_num, lsam_flag=lsam_flag)
-    eval_envs = make_eval_env(all_args, map=map, agents_num=agents_num, lsam_flag=lsam_flag) if all_args.use_eval else None
+    envs = make_train_env(all_args, map=map, agents_num=agents_num, lsam_flag=lsam_flag, map_type=map_type)
+    eval_envs = make_eval_env(all_args, map=map, agents_num=agents_num, lsam_flag=lsam_flag, map_type=map_type) if all_args.use_eval else None
 
     config = {
         "all_args": all_args,
